@@ -734,7 +734,7 @@ module Make = (Ast_builder: Ppxlib.Ast_builder.S) => {
               None,
               [%pat? arg],
               pexp_apply(
-                [%expr Option.bind],
+                [%expr Option.map],
                 [(Nolabel, [%expr arg]), (Nolabel, value)],
               ),
             )
