@@ -6,6 +6,7 @@
   styled-ppx.css-spec-parser
   styled-ppx.reason-css-lexer
   compiler-libs)
+ (flags (:standard -g -w -39))
  (preprocess
   (per_module
    ((pps reason_css_parser_ppx sedlex.ppx ppxlib.metaquot) 

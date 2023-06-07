@@ -118,10 +118,10 @@ let unsupportedProperty = (parser) =>
     (~loc as _) => raise(Unsupported_feature),
   );
 
-let render_string = Parser.Printers.render_string;
-let render_integer = Parser.Printers.render_integer;
-let render_number = Parser.Printers.render_number;
-let render_percentage = Parser.Printers.render_percentage
+let render_string = Parser.Render.render_string;
+let render_integer = Parser.Render.render_integer;
+let render_number = Parser.Render.render_number;
+let render_percentage = Parser.Render.render_percentage
 
 let render_css_global_values = (~loc, name, value) => {
   let.ok value = Parser.parse(Standard.css_wide_keywords, value);
@@ -227,7 +227,7 @@ let variant_to_expression = (~loc) => fun
   | `Full_size_kana => raise(Unsupported_feature);
 
 // TODO: all of them could be float, but bs-css doesn't support it
-let render_length = Parser.Printers.render_length;
+let render_length = Parser.Render.render_length;
 
 let rec render_function_calc = (~loc, calc_sum) => {
   switch (calc_sum) {
@@ -348,7 +348,7 @@ let render_min_size = (~loc) => fun
   | `Fit_content_1(_)
   | _ => raise(Unsupported_feature);
 
-let render_angle = Parser.Printers.render_angle;
+let render_angle = Parser.Render.render_angle;
 
 let render_extended_angle = (~loc) => fun
   | `Angle(a) => render_angle(~loc, a)
